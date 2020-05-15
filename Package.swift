@@ -12,7 +12,7 @@ let package = Package(
             targets: ["SwiftCryptoTokenFormatter"])
     ],
     dependencies: [
-        .package(url: "https://github.com/attaswift/BigInt.git", .upToNextMinor(from: "5.1.0"))
+        .package(url: "https://github.com/attaswift/BigInt.git", from: "5.0.0")
     ],
     targets: [
         .target(

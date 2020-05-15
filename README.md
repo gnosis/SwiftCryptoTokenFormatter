@@ -18,6 +18,9 @@ Formatter for crypto token amounts.
 - M, B, T is localized
 
 ```Swift
+import SwiftCryptoTokenFormatter
+import BigInt
+
 let f = TokenFormatter()
 f.string(from: BigDecimal(100_000_000_000000000, 9)) // 100M
 f.string(from: BigDecimal(BigInt("999999999000000000000"), 9)) // 999.999B
@@ -41,6 +44,15 @@ f.string(from: BigDecimal(-10_000_001000000, 9) // -10,000.001
 ### Number from string
 ```Swift
 f.number(from: "0,001", precision: 3) == BigDecimal(1, 3)
+```
+
+### Localizatoin
+
+You can localize "M", "B" and "T" postfixes using "amount_millions", "amount_billions" and "amount_trillions" in your localization file.
+
+```Swift
+// Assuming russian locale and "amount_billions" = "Б"
+formatter.localizedString(from: BigDecimal(BigInt("999999999000000000000"), 9)) // 999,999Б
 ```
 
 ## Installation
