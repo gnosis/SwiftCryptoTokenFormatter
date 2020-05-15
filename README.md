@@ -111,6 +111,7 @@ You can use Swift Package Manager and add dependency in your `Package.swift`:
 
 * Dmitry Bespalov ([DmitryBespalov](https://github.com/DmitryBespalov))
 * Andrey Scherbovich ([sche](https://github.com/sche))
+* Mouaz Alzahabi ([MouazAlzahabi](https://github.com/MouazAlzahabi))
 
 ## License
 
