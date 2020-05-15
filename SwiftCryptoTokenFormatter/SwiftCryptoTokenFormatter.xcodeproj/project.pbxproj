@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		558FC8BE246E77AF00CA8066 /* TokenFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558FC8BD246E77AF00CA8066 /* TokenFormatter.swift */; };
 		558FC8C3246E791400CA8066 /* BigInt in Frameworks */ = {isa = PBXBuildFile; productRef = 558FC8C2246E791400CA8066 /* BigInt */; };
 		558FC8DE246E7E5500CA8066 /* SwiftCryptoTokenFormatter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 558FC8A3246E766600CA8066 /* SwiftCryptoTokenFormatter.framework */; };
-		558FC8E7246E7F1600CA8066 /* TokenFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558FC8E6246E7F1600CA8066 /* TokenFormatterTests.swift */; };
+		558FC90E246EA8C400CA8066 /* TokenFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558FC90D246EA8C400CA8066 /* TokenFormatter.swift */; };
+		558FC914246EA8F300CA8066 /* TokenFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558FC913246EA8F300CA8066 /* TokenFormatterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,10 +26,10 @@
 /* Begin PBXFileReference section */
 		558FC8A3246E766600CA8066 /* SwiftCryptoTokenFormatter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCryptoTokenFormatter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		558FC8A7246E766600CA8066 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		558FC8BD246E77AF00CA8066 /* TokenFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenFormatter.swift; sourceTree = "<group>"; };
 		558FC8D9246E7E5500CA8066 /* SwiftCryptoTokenFormatterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCryptoTokenFormatterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		558FC8DD246E7E5500CA8066 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		558FC8E6246E7F1600CA8066 /* TokenFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenFormatterTests.swift; sourceTree = "<group>"; };
+		558FC90D246EA8C400CA8066 /* TokenFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenFormatter.swift; sourceTree = "<group>"; };
+		558FC913246EA8F300CA8066 /* TokenFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenFormatterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +55,8 @@
 		558FC899246E766600CA8066 = {
 			isa = PBXGroup;
 			children = (
-				558FC8E4246E7EDF00CA8066 /* Sources */,
-				558FC8E5246E7EF100CA8066 /* Tests */,
+				558FC90C246EA8C400CA8066 /* Sources */,
+				558FC912246EA8F300CA8066 /* Tests */,
 				558FC8A5246E766600CA8066 /* SwiftCryptoTokenFormatter */,
 				558FC8DA246E7E5500CA8066 /* SwiftCryptoTokenFormatterTests */,
 				558FC8A4246E766600CA8066 /* Products */,
@@ -88,20 +88,22 @@
 			path = SwiftCryptoTokenFormatterTests;
 			sourceTree = "<group>";
 		};
-		558FC8E4246E7EDF00CA8066 /* Sources */ = {
+		558FC90C246EA8C400CA8066 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				558FC8BD246E77AF00CA8066 /* TokenFormatter.swift */,
+				558FC90D246EA8C400CA8066 /* TokenFormatter.swift */,
 			);
-			path = Sources;
+			name = Sources;
+			path = ../Sources;
 			sourceTree = "<group>";
 		};
-		558FC8E5246E7EF100CA8066 /* Tests */ = {
+		558FC912246EA8F300CA8066 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				558FC8E6246E7F1600CA8066 /* TokenFormatterTests.swift */,
+				558FC913246EA8F300CA8066 /* TokenFormatterTests.swift */,
 			);
-			path = Tests;
+			name = Tests;
+			path = ../Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,7 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				558FC8BE246E77AF00CA8066 /* TokenFormatter.swift in Sources */,
+				558FC90E246EA8C400CA8066 /* TokenFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				558FC8E7246E7F1600CA8066 /* TokenFormatterTests.swift in Sources */,
+				558FC914246EA8F300CA8066 /* TokenFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +418,7 @@
 		558FC8E2246E7E5500CA8066 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZKG876RKJ8;
 				INFOPLIST_FILE = SwiftCryptoTokenFormatterTests/Info.plist;
@@ -434,6 +437,7 @@
 		558FC8E3246E7E5500CA8066 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZKG876RKJ8;
 				INFOPLIST_FILE = SwiftCryptoTokenFormatterTests/Info.plist;
