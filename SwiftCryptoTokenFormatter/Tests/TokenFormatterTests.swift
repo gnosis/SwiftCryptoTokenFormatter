@@ -1,11 +1,11 @@
 //
-//  Copyright © 2019 Gnosis Ltd. All rights reserved.
+//  Copyright © 2020 Gnosis Ltd. All rights reserved.
 //
 
 import XCTest
-@testable import SafeUIKit
+@testable import SwiftCryptoTokenFormatter
 import BigInt
-import Common
+
 
 class TokenFormatterTests: XCTestCase {
 
@@ -77,16 +77,6 @@ class TokenFormatterTests: XCTestCase {
         XCTAssertEqual(f.string(from: BigDecimal(1, 0), forcePlusSign: true), "+1")
         XCTAssertEqual(f.string(from: BigDecimal(BigInt("1000000000000000000000000"), 9), forcePlusSign: true),
                        "> +999T")
-
-        // TokenData
-        let oneEth = BigInt(10).power(18)
-        XCTAssertEqual(f.string(from: TokenData.Ether.withBalance(oneEth)), "1 ETH")
-
-        let noCode = TokenData(address: "", code: "", name: "", logoURL: "", decimals: 18, balance: oneEth)
-        XCTAssertEqual(f.string(from: noCode), "1")
-
-        let noAmount = TokenData(address: "", code: "ETH", name: "", logoURL: "", decimals: 18, balance: nil)
-        XCTAssertEqual(f.string(from: noAmount), "-")
 
         // roundUp
         f.roundingBehavior = .roundUp
