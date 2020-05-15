@@ -18,8 +18,11 @@ let package = Package(
         .target(
             name: "SwiftCryptoTokenFormatter", 
             dependencies: ["BigInt"],
-            path: "Sources"),
-        .testTarget(name: "SwiftCryptoTokenFormatterTests", dependencies: ["SwiftCryptoTokenFormatter"], path: "Tests")
+            path: "SwiftCryptoTokenFormatter/SwiftCryptoTokenFormatter"),
+        .testTarget(
+            name: "SwiftCryptoTokenFormatterTests", 
+            dependencies: ["SwiftCryptoTokenFormatter"], 
+            path: "SwiftCryptoTokenFormatter/SwiftCryptoTokenFormatterTests")
     ],
     swiftLanguageVersions: [.v5]
 )

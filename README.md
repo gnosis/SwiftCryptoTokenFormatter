@@ -17,6 +17,12 @@ Formatter for crypto token amounts.
 - Thousands and decimal separators are used according to user's locale.
 - M, B, T is localized
 
+```Swift
+let f = TokenFormatter()
+f.string(from: BigDecimal(100_000_000_000000000, 9)) // 100M
+f.string(from: BigDecimal(BigInt("999999999000000000000"), 9)) // 999.999B
+```
+
 ## Features
 
 ### Custom rounding behaviour

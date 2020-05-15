@@ -12,7 +12,7 @@ Pod::Spec.new do |spec|
     spec.platform     = :ios, "11.0"
     spec.swift_version = "5.0"
     spec.source       = { :git => "https://github.com/gnosis/SwiftCryptoTokenFormatter.git", :tag => "#{spec.version}" }
-    spec.source_files  = "Sources/**/*.swift"
+    spec.source_files  = "SwiftCryptoTokenFormatter/SwiftCryptoTokenFormatter/**/*.swift"
     spec.requires_arc = true
     spec.dependency "BigInt", "~> 5.1.0"
   end
