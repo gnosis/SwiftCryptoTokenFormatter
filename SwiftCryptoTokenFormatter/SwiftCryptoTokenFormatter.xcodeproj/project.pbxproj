@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		558FC8C3246E791400CA8066 /* BigInt in Frameworks */ = {isa = PBXBuildFile; productRef = 558FC8C2246E791400CA8066 /* BigInt */; };
 		558FC8DE246E7E5500CA8066 /* SwiftCryptoTokenFormatter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 558FC8A3246E766600CA8066 /* SwiftCryptoTokenFormatter.framework */; };
 		558FC91B246EAE0700CA8066 /* TokenFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558FC91A246EAE0700CA8066 /* TokenFormatter.swift */; };
 		558FC91D246EAE1D00CA8066 /* TokenFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558FC91C246EAE1D00CA8066 /* TokenFormatterTests.swift */; };
+		55F9A2DB2472C98600ABBA6F /* BigInt in Frameworks */ = {isa = PBXBuildFile; productRef = 55F9A2DA2472C98600ABBA6F /* BigInt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				558FC8C3246E791400CA8066 /* BigInt in Frameworks */,
+				55F9A2DB2472C98600ABBA6F /* BigInt in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +116,7 @@
 			);
 			name = SwiftCryptoTokenFormatter;
 			packageProductDependencies = (
-				558FC8C2246E791400CA8066 /* BigInt */,
+				55F9A2DA2472C98600ABBA6F /* BigInt */,
 			);
 			productName = SwiftCryptoTokenFormatter;
 			productReference = 558FC8A3246E766600CA8066 /* SwiftCryptoTokenFormatter.framework */;
@@ -170,7 +170,7 @@
 			);
 			mainGroup = 558FC899246E766600CA8066;
 			packageReferences = (
-				558FC8C1246E791400CA8066 /* XCRemoteSwiftPackageReference "BigInt" */,
+				55F9A2D92472C98600ABBA6F /* XCRemoteSwiftPackageReference "BigInt" */,
 			);
 			productRefGroup = 558FC8A4246E766600CA8066 /* Products */;
 			projectDirPath = "";
@@ -472,20 +472,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		558FC8C1246E791400CA8066 /* XCRemoteSwiftPackageReference "BigInt" */ = {
+		55F9A2D92472C98600ABBA6F /* XCRemoteSwiftPackageReference "BigInt" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/attaswift/BigInt.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.1.0;
+				minimumVersion = 4.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		558FC8C2246E791400CA8066 /* BigInt */ = {
+		55F9A2DA2472C98600ABBA6F /* BigInt */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 558FC8C1246E791400CA8066 /* XCRemoteSwiftPackageReference "BigInt" */;
+			package = 55F9A2D92472C98600ABBA6F /* XCRemoteSwiftPackageReference "BigInt" */;
 			productName = BigInt;
 		};
 /* End XCSwiftPackageProductDependency section */
