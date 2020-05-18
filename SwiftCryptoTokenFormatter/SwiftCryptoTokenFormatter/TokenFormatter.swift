@@ -1,17 +1,15 @@
 //
-//  Copyright © 2019 Gnosis Ltd. All rights reserved.
+//  Copyright © 2020 Gnosis Ltd. All rights reserved.
 //
 
 import Foundation
 import BigInt
-import Common
 
 /// Formats numbers to and from string representations.
 public class TokenFormatter {
-
-    public static let defaultLocalizedLiterals = (millions: LocalizedString("amount_millions", comment: "M"),
-                                                  billions: LocalizedString("amount_billions", comment: "B"),
-                                                  trillions: LocalizedString("amount_trillions", comment: "T"))
+    public static let defaultLocalizedLiterals = (millions: NSLocalizedString("amount_millions", comment: "M"),
+                                                  billions: NSLocalizedString("amount_billions", comment: "B"),
+                                                  trillions: NSLocalizedString("amount_trillions", comment: "T"))
     public static let defaultLiterals = (millions: "M", billions: "B", trillions: "T")
     public static let decimalSeparators = ".,٫"
 
@@ -57,18 +55,6 @@ public class TokenFormatter {
         return BigDecimal(value, precision)
     }
 
-    public func localizedString(from tokenData: TokenData,
-                                locale: Locale = Locale.autoupdatingCurrent,
-                                forcePlusSign: Bool = false,
-                                shortFormat: Bool = true) -> String {
-        return string(from: tokenData,
-                      decimalSeparator: locale.decimalSeparator ?? ".",
-                      thousandSeparator: locale.groupingSeparator ?? ",",
-                      literals: TokenFormatter.defaultLocalizedLiterals,
-                      forcePlusSign: forcePlusSign,
-                      shortFormat: shortFormat)
-    }
-
     public func localizedString(from number: BigDecimal,
                                 locale: Locale = Locale.autoupdatingCurrent,
                                 forcePlusSign: Bool = false,
@@ -79,37 +65,6 @@ public class TokenFormatter {
                       literals: TokenFormatter.defaultLocalizedLiterals,
                       forcePlusSign: forcePlusSign,
                       shortFormat: shortFormat)
-    }
-    /// Formats a TokenData - amount of a token, in the form of "1,000.01 ETH".
-    /// Values with `nil` balances will be '-', values with empty codes will be just numbers ("1,000.01").
-    /// For details of the number formatting, see the other formatting function for BigDecimals.
-    ///
-    ///
-    /// - Parameters:
-    ///   - tokenData: A value to format
-    ///   - decimalSeparator: decimal point
-    ///   - thousandSeparator: thousand grouping
-    ///   - literals: abbreviations for millions, billions, and trillions
-    ///   - forcePlusSign: whether to use '+' for positive numbers
-    ///   - shortFormat: whether to use short or full format
-    /// - Returns: formatted token amount.
-    public func string(from tokenData: TokenData,
-                       decimalSeparator: String = ".",
-                       thousandSeparator: String = ",",
-                       literals: (millions: String, billions: String, trillions: String)
-                            = TokenFormatter.defaultLiterals,
-                       forcePlusSign: Bool = false,
-                       shortFormat: Bool = true) -> String {
-        guard let token = tokenData.tokenValue else {
-            return "-"
-        }
-        let formattedAmount = string(from: token.amount,
-                                     decimalSeparator: decimalSeparator,
-                                     thousandSeparator: thousandSeparator,
-                                     literals: literals,
-                                     forcePlusSign: forcePlusSign,
-                                     shortFormat: shortFormat)
-        return token.code.isEmpty ? formattedAmount : (formattedAmount + " " + token.code)
     }
 
     /// Formats a BigDecimal number.
@@ -163,7 +118,7 @@ public class TokenFormatter {
         // number of zeroes, or decide on the rules for millions/billions formatting. This would require
         // the log10() function for the BigInt type, which we do not have. That is why the String-based
         // operations have been chosen.
-        //
+
         var numberString = String(abs(number.value))
         let leadingZeroesForSmallNumbers = String(repeating: "0",
                                                   count: max(0, number.precision - numberString.count + 1))
@@ -283,13 +238,11 @@ public class TokenFormatter {
         }
         return groups
     }
-
 }
 
 
 /// Represents a decimal number as a BigInt value with a known maximum number of digits after decimal point (precision).
 public struct BigDecimal: Hashable {
-
     public var value: BigInt
     public var precision: Int
 
@@ -303,31 +256,20 @@ public struct BigDecimal: Hashable {
     }
 }
 
-/// Represetns a token amount of a crypto token as BigDecimal amount and token code
-public struct CryptoToken: Hashable {
-
-    public var amount: BigDecimal
-    public var code: String
-
-    public init(_ amount: BigDecimal, _ code: String) {
-        self.amount = amount
-        self.code = code
+extension String {
+    var removingTrailingZeroes: String {
+        var result = self
+        while result.last == "0" {
+            result.removeLast()
+        }
+        return result
     }
 
-}
-
-public extension TokenData {
-
-    /// CryptoToken-formatted balance
-    var tokenValue: CryptoToken? {
-        guard let amount = decimalAmount else { return nil }
-        return CryptoToken(amount, code)
+    var removingLeadingZeroes: String {
+        var result = self
+        while result.first == "0" {
+            result.removeFirst()
+        }
+        return result
     }
-
-    /// Balance as a decimal number
-    var decimalAmount: BigDecimal? {
-        guard let balance = balance else { return nil }
-        return BigDecimal(balance, decimals)
-    }
-
 }
