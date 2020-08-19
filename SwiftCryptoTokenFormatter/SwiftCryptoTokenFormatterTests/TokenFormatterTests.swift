@@ -8,7 +8,6 @@ import BigInt
 
 
 class TokenFormatterTests: XCTestCase {
-
     let f = TokenFormatter()
 
     // swiftlint:disable number_separator
@@ -19,8 +18,19 @@ class TokenFormatterTests: XCTestCase {
         XCTAssertEqual(f.string(from: BigDecimal(1_000, 3), shortFormat: false), "1")
         XCTAssertEqual(f.string(from: BigDecimal(1_000, 7), shortFormat: false), "0.0001")
 
+        // 0 --> 0
+        XCTAssertEqual(f.string(from: BigDecimal(0_000000000, 9)), "0")
         // 0.12345600 -> 0.12345
         XCTAssertEqual(f.string(from: BigDecimal(0_123456000, 9)), "0.12345")
+        // 0.00001 -> 0.00001
+        XCTAssertEqual(f.string(from: BigDecimal(0_000010000, 9)), "0.00001")
+        // 0.000001 -> < 0.00001
+        XCTAssertEqual(f.string(from: BigDecimal(0_000001000, 9)), "< 0.00001")
+        XCTAssertEqual(f.string(from: BigDecimal(0_000001000, 9), forcePlusSign: true), "< +0.00001")
+        // -0.00001 -> -0.00001
+        XCTAssertEqual(f.string(from: BigDecimal(-0_000010000, 9)), "-0.00001")
+        // -0.000001 ->  > -0.00001
+        XCTAssertEqual(f.string(from: BigDecimal(-0_000001000, 9)), "> -0.00001")
         // 1.123456000 -> 1.12345
         XCTAssertEqual(f.string(from: BigDecimal(1_123456000, 9)), "1.12345")
         // 100.123456000 -> 100.12345
@@ -71,8 +81,6 @@ class TokenFormatterTests: XCTestCase {
         XCTAssertEqual(f.string(from: BigDecimal(BigInt("-999999999000000000000000"), 9)), "-999.999T")
         XCTAssertEqual(f.string(from: BigDecimal(-10_000_001000000, 9)), "-10,000.001")
         XCTAssertEqual(f.string(from: BigDecimal(0, 9)), "0")
-        XCTAssertEqual(f.string(from: BigDecimal(0_000000001, 9)), "0")
-        XCTAssertEqual(f.string(from: BigDecimal(-0_000000001, 9)), "0")
         // Plus sign
         XCTAssertEqual(f.string(from: BigDecimal(1, 0), forcePlusSign: true), "+1")
         XCTAssertEqual(f.string(from: BigDecimal(BigInt("1000000000000000000000000"), 9), forcePlusSign: true),

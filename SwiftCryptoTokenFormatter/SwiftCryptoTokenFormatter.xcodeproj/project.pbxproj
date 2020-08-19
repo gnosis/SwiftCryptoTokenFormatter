@@ -10,7 +10,7 @@
 		558FC8DE246E7E5500CA8066 /* SwiftCryptoTokenFormatter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 558FC8A3246E766600CA8066 /* SwiftCryptoTokenFormatter.framework */; };
 		558FC91B246EAE0700CA8066 /* TokenFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558FC91A246EAE0700CA8066 /* TokenFormatter.swift */; };
 		558FC91D246EAE1D00CA8066 /* TokenFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558FC91C246EAE1D00CA8066 /* TokenFormatterTests.swift */; };
-		55F9A2DB2472C98600ABBA6F /* BigInt in Frameworks */ = {isa = PBXBuildFile; productRef = 55F9A2DA2472C98600ABBA6F /* BigInt */; };
+		55F9A2FD2473F36800ABBA6F /* BigInt in Frameworks */ = {isa = PBXBuildFile; productRef = 55F9A2FC2473F36800ABBA6F /* BigInt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55F9A2DB2472C98600ABBA6F /* BigInt in Frameworks */,
+				55F9A2FD2473F36800ABBA6F /* BigInt in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +58,7 @@
 				558FC8A5246E766600CA8066 /* SwiftCryptoTokenFormatter */,
 				558FC8DA246E7E5500CA8066 /* SwiftCryptoTokenFormatterTests */,
 				558FC8A4246E766600CA8066 /* Products */,
+				55F9A2FB2473F36800ABBA6F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +89,13 @@
 			path = SwiftCryptoTokenFormatterTests;
 			sourceTree = "<group>";
 		};
+		55F9A2FB2473F36800ABBA6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -116,7 +124,7 @@
 			);
 			name = SwiftCryptoTokenFormatter;
 			packageProductDependencies = (
-				55F9A2DA2472C98600ABBA6F /* BigInt */,
+				55F9A2FC2473F36800ABBA6F /* BigInt */,
 			);
 			productName = SwiftCryptoTokenFormatter;
 			productReference = 558FC8A3246E766600CA8066 /* SwiftCryptoTokenFormatter.framework */;
@@ -483,7 +491,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		55F9A2DA2472C98600ABBA6F /* BigInt */ = {
+		55F9A2FC2473F36800ABBA6F /* BigInt */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 55F9A2D92472C98600ABBA6F /* XCRemoteSwiftPackageReference "BigInt" */;
 			productName = BigInt;
