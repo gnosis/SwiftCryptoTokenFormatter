@@ -77,7 +77,8 @@ public class TokenFormatter {
     /// ## Short
     /// Short format cuts decimal digits based on the following rules, based on the number's magnitude:
     ///
-    ///   - N < 1000 - displays 5 decimal digits (without rounding); For all values < 0.00001 display '< 0.00001'
+    ///   - N < 0.00001 - display '< 0.00001'
+    ///   - N < 1000 - displays 5 decimal digits (without rounding)
     ///   - N < 10 thousands - displays 4 decimal digits
     ///   - N < 100 thousands - displays 3 decimal digits
     ///   - N < 1 million - displays 2 ecimal digits
