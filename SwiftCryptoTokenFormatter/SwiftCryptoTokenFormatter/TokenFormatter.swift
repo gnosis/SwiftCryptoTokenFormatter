@@ -212,7 +212,7 @@ public class TokenFormatter {
 
         if magnitude == "0" {
             if isNegative {
-                return "> -0\(decimalSeparator)00001"
+                return "< -0\(decimalSeparator)00001"
             } else {
                 return "< \(positiveSign)0\(decimalSeparator)00001"
             }

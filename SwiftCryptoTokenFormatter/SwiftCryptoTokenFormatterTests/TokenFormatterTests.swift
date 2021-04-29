@@ -29,8 +29,8 @@ class TokenFormatterTests: XCTestCase {
         XCTAssertEqual(f.string(from: BigDecimal(0_000001000, 9), forcePlusSign: true), "< +0.00001")
         // -0.00001 -> -0.00001
         XCTAssertEqual(f.string(from: BigDecimal(-0_000010000, 9)), "-0.00001")
-        // -0.000001 ->  > -0.00001
-        XCTAssertEqual(f.string(from: BigDecimal(-0_000001000, 9)), "> -0.00001")
+        // -0.000001 ->  < -0.00001
+        XCTAssertEqual(f.string(from: BigDecimal(-0_000001000, 9)), "< -0.00001")
         // 1.123456000 -> 1.12345
         XCTAssertEqual(f.string(from: BigDecimal(1_123456000, 9)), "1.12345")
         // 100.123456000 -> 100.12345
