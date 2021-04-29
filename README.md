@@ -6,6 +6,7 @@ Formatter for crypto token amounts.
 - Remove trailing zeroes, i.e. display 0.10000 as 0.1
 - Use the 5 decimals up until 999.99999
 - Display '< 0.00001' for values less than 0.00001
+- Display '< -0.00001' for values greater than -0.00001 and less than 0 despite the fact that it's semantically not 100% correct as e.g. -0.0000005 is bigger, not smaller than -0.00001
 - Use 1 decimal less from 1,000.0001 until 9,999.9999
 - Use 1 decimal less from 10,000.001 until 99,999.999
 - Use 1 decimal less from 100,000.01 until 999,999.99
@@ -69,7 +70,6 @@ formatter.localizedString(from: BigDecimal(BigInt("999999999000000000000"), 9)) 
 - Swift 5
 
 
-
 ### Manual
 
 Add this repository as a submodule:
@@ -90,11 +90,6 @@ Dependencies of the SwiftCryptoTokenFormatter library:
 
 Drag and drop the `SwiftCryptoTokenFormatter.xcodeproj` into your project and link the `SwiftCryptoTokenFormatter` static library.
 
-### CocoaPods
-
-```
-pod 'SwiftCryptoTokenFormatter'
-```
 
 ### Carthage
 
@@ -108,7 +103,7 @@ Run `carthage update` to build the framework and drag the SwiftCryptoTokenFormat
 You can use Swift Package Manager and add dependency in your `Package.swift`:
 ```
     dependencies: [
-        .package(url: "https://github.com/gnosis/SwiftCryptoTokenFormatter.git", .upToNextMinor(from: "1.0.0"))
+        .package(url: "https://github.com/gnosis/SwiftCryptoTokenFormatter.git", .upToNextMinor(from: "1.1.0"))
     ]
 ```
 
